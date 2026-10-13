@@ -1,0 +1,399 @@
+[
+  {
+    "scene": "Crossroads_11_alt",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ]
+  },
+  {
+    "scene": "Crossroads_35",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "hot_spring_layers_0032_Color-Balance-1-copy-5", "hot_spring_layers_0032_Color-Balance-1-copy-5 (1)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea",
+        "PosY": 25.11,
+        "MinY": 34
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 36.91,
+        "size": 8.5
+      }
+    ]
+  },
+  {
+    "scene": "Crossroads_50",
+    "type": "Water",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Fungus1_01",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Fungus1_02",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (3)",
+        "PosY": 37.8,
+        "ScaleY": 0.4,
+        "MinY": 42
+      }
+    ]
+  },
+  {
+    "scene": "Fungus1_03",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 13.34,
+        "size": 4.2954
+      }
+    ]
+  },
+  {
+    "scene": "Fungus1_04",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ],
+    "boxes": [
+      {
+        "X": 35,
+        "Y": -0.4,
+        "SizeX": 50,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus1_07",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Fungus1_10",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 90,
+        "Y": -0.4,
+        "SizeX": 180,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus1_11",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ]
+  },
+  {
+    "scene": "Fungus1_12",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ]
+  },
+  {
+    "scene": "Fungus1_13",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Fungus1_17",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ]
+  },
+  {
+    "scene": "Fungus1_26",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 33.5,
+        "Y": -0.4,
+        "SizeX": 51,
+        "SizeY": 1
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 10.9,
+        "size": 10.5
+      }
+    ]
+  },
+  {
+    "scene": "Fungus1_Slug",
+    "type": "Acid",
+    "boxes": [
+      {
+        "X": 15,
+        "Y": -0.4,
+        "SizeX": 30,
+        "SizeY": 1
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Acid Control v2/Surface Water Region",
+        "position": 10.96,
+        "size": 10.5
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_03",
+    "type": "Acid",
+    "renderers": [ "water_fog (3)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (4)",
+        "PosY": 5.5,
+        "MinY": 9.4
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 11.39,
+        "size": 7
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_04",
+    "type": "Acid",
+    "renderers": [ "water_fog" ]
+  },
+  {
+    "scene": "Fungus2_06",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ],
+    "acidEdits": [
+      {
+        "name": "Acid Control v2/Surface Water Region",
+        "position": 9.55,
+        "size": 6
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_08",
+    "type": "Acid",
+    "renderers": [ "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_fog", "water_fog (1)" ],
+    "acidEdits": [
+      {
+        "name": "Acid Control v2/Surface Water Region",
+        "position": 9.9,
+        "size": 7
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_09",
+    "type": "Acid",
+    "renderers": [ "water_fog (1)", "hot_spring_layers_0032_Color-Balance-1-copy-5" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (1)",
+        "PosY": 3.4,
+        "MaxX": 14.6,
+        "MinY": 8.4
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_10",
+    "type": "Acid",
+    "renderers": [ "hot_spring_layers_0032_Color-Balance-1-copy-5 (1)", "hot_spring_layers_0032_Color-Balance-1-copy-5 (2)", "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components (2)/hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
+    "scene": "Fungus2_12",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components 1/hot_spring_layers_0032_Color-Balance-1-copy-5" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea",
+        "PosY": -10.25,
+        "MinY": 9.7
+      },
+      {
+        "AreaToClone": "CameraLockArea (2)",
+        "PosY": -8,
+        "MinY": 10.4
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_13",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5" ],
+    "boxes": [
+      {
+        "X": 12.5,
+        "Y": -0.5,
+        "SizeX": 17,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_14",
+    "type": "Acid",
+    "renderers": [ "hot_spring_layers_0032_Color-Balance-1-copy-5", "hot_spring_layers_0032_Color-Balance-1-copy-5 (1)" ]
+  },
+  {
+    "scene": "Fungus2_19",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ]
+  },
+  {
+    "scene": "Fungus2_20",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (2)",
+        "PosY": -4.5,
+        "MinY": 8.7
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_21",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "hot_spring_layers_0032_Color-Balance-1-copy-5" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (3)",
+        "PosX": 52.5,
+        "PosY": 0.6,
+        "MinY": 8.6
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 9.84,
+        "size": 6
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_30",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (6)",
+        "PosY": 5,
+        "MinY": 20.7
+      }
+    ]
+  },
+  {
+    "scene": "Fungus2_33",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 35,
+        "Y": -0.4,
+        "SizeX": 26,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_01",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 17,
+        "Y": 6.2,
+        "SizeX": 22,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_24",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 55,
+        "Y": 3.3,
+        "SizeX": 82,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_25",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "boxes": [
+      {
+        "X": 50,
+        "Y": 2,
+        "SizeX": 100,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_25b",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 12,
+        "size": 9
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_26",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ],
+    "boxes": [
+      {
+        "X": 17,
+        "Y": -0.4,
+        "SizeX": 22,
+        "SizeY": 1
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Surface Water Region",
+        "position": 8.7,
+        "size": 6
+      }
+    ]
+  },
+  {
+    "scene": "Fungus3_28",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ]
+  },
+  {
+    "scene": "Fungus3_44",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)" ]
+  },
+  {
+    "scene": "Fungus3_archive_02",
+    "type": "Acid"
+  }
+]

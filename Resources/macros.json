@@ -1,0 +1,4 @@
+{
+  "Across_from_Elder_Stag_lower": "LEFTDASH | LEFTSUPERDASH | SPELLAIRSTALL + ($CASTSPELL[3,before:ROOMSOUL] | LEFTCLAW + $CASTSPELL[2,before:ROOMSOUL])",
+  "Across_from_Elder_Stag_upper": "Across_from_Elder_Stag_lower + LEFTCLAW | (RIGHTDASH + PRECISEMOVEMENT)"
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Acid_Dive-Crossroads",
+    "logic": "(Crossroads_35[right1] | Crossroads_35[bot1] + (RIGHTCLAW | $SHRIEKPOGO[1,2,before:ITEMSOUL] | $SHRIEKPOGO[1,before:ITEMSOUL] + LEFTCLAW)) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Enter_Greenpath",
+    "logic": "(Fungus1_01[left1] | Fungus1_01[right1] | Stag-Waterfall_East?FALSE + Can_Stag) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Squit_Skip_Upper",
+    "logic": "(Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Squit_Skip_Lower",
+    "logic": "(Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Durandoos",
+    "logic": "(Fungus1_13[right1] | Stag-Durandoos?FALSE + Can_Stag | Fungus1_13[left1] + Vine-Root_Left?TRUE + Vine-Root_Right?FALSE + (WINGS | ANYCLAW + PRECISEMOVEMENT)) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Lake_of_Unn",
+    "logic": "(Fungus1_26[left1] | Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Unn",
+    "logic": "Fungus1_Slug[right1] + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Queen's_Station",
+    "logic": "Fungus2_03 + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Fungal_Falls",
+    "logic": "Fungus2_06 + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Below_Falls",
+    "logic": "Fungus2_06 + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Elder_Hu",
+    "logic": "(Fungus2_08[left1] | Fungus2_08[left2] | Fungus2_08[right1] + Fungus2_08[right_RCD]?FALSE | Stag-Elder_Hu?FALSE + Can_Stag) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Cloth",
+    "logic": "(Fungus2_09[left1] | Fungus2_09[right1]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Mantis_Safari",
+    "logic": "(Fungus2_12[left1] | (Fungus2_12[bot1] | Stag-Mantis_Outskirts?FALSE + Can_Stag) + (ANYCLAW | WINGS | LEFTDASH | ENEMYPOGOS)) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Bretta",
+    "logic": "Fungus2_13 + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Near_Spore_Shroom",
+    "logic": "(Fungus2_19[left1] | Fungus2_19[top1] + (LEFTCLAW | WINGS)) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Fungal_Elder",
+    "logic": "(Fungus2_30[top1] | Stag-Fungal_Elder?FALSE + Can_Stag + (WINGS | RIGHTCLAW | LEFTCLAW + ENEMYPOGOS | Across_from_Elder_Stag_upper)) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-West_Fog_Canyon",
+    "logic": "(Fungus3_24[left1] | Fungus3_24[right1] | Fungus3_24[top1]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-East_Fog_Canyon",
+    "logic": "(Fungus3_25b[left1] | Fungus3_25b[right1] | Stag-East_Fog_Canyon?FALSE + Can_Stag) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Archives",
+    "logic": "(Fungus3_archive_02[top1] + Defeated_Uumuu | Stag-Teacher's_Archives?FALSE + Can_Stag) + ACID>1"
+  }
+]
