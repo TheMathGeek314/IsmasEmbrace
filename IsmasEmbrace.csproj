@@ -55,12 +55,14 @@
     <None Remove="Resources\Bubbles.png" />
     <None Remove="Resources\data.json" />
     <None Remove="Resources\logic.json" />
+    <None Remove="Resources\logicSubstitutions.json" />
     <None Remove="Resources\rooms.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Bubbles.png" />
     <EmbeddedResource Include="Resources\data.json" />
     <EmbeddedResource Include="Resources\logic.json" />
+    <EmbeddedResource Include="Resources\logicSubstitutions.json" />
     <EmbeddedResource Include="Resources\rooms.json" />
     <EmbeddedResource Include="Resources\Walljump.png" />
     <EmbeddedResource Include="Resources\macros.json" />

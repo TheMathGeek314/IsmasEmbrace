@@ -108,9 +108,51 @@
     "y": 4.5
   },
   {
+    "name": "Acid_Dive-Queen's_Gardens",
+    "scene": "Fungus3_39",
+    "x": 17.1,
+    "y": 1.5
+  },
+  {
     "name": "Acid_Dive-Archives",
     "scene": "Fungus3_archive_02",
     "x": 98.1,
     "y": 45.5
+  },
+  {
+    "name": "Water_Dive-King's_Station",
+    "scene": "Ruins2_06",
+    "x": 26,
+    "y": 1.5
+  },
+  {
+    "name": "Water_Dive-Tuk",
+    "scene": "Waterways_01",
+    "x": 138.3,
+    "y": 5.5
+  },
+  {
+    "name": "Water_Dive-Waterways_West",
+    "scene": "Waterways_04b",
+    "x": 120.4,
+    "y": 19.5
+  },
+  {
+    "name": "Acid_Dive-Waterways_South",
+    "scene": "Waterways_06",
+    "x": 16.4,
+    "y": 5.5
+  },
+  {
+    "name": "Acid_Dive-Below_Emilitia",
+    "scene": "Waterways_07",
+    "x": 83.1,
+    "y": 9.5
+  },
+  {
+    "name": "Acid_Dive-Isma's_Grove",
+    "scene": "Waterways_13",
+    "x": 96.7,
+    "y": 86.5
   }
 ]

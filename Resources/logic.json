@@ -1,7 +1,7 @@
 [
   {
     "name": "Acid_Dive-Crossroads",
-    "logic": "(Crossroads_35[right1] | Crossroads_35[bot1] + (RIGHTCLAW | $SHRIEKPOGO[1,2,before:ITEMSOUL] | $SHRIEKPOGO[1,before:ITEMSOUL] + LEFTCLAW)) + ACID>1"
+    "logic": "(Crossroads_35[right1] | Crossroads_35[bot1] + (RIGHTCLAW | $SHRIEKPOGO[1,2,before:ROOMSOUL] | $SHRIEKPOGO[1,before:ROOMSOUL] + LEFTCLAW)) + ACID>1"
   },
   {
     "name": "Acid_Dive-Enter_Greenpath",
@@ -72,7 +72,35 @@
     "logic": "(Fungus3_25b[left1] | Fungus3_25b[right1] | Stag-East_Fog_Canyon?FALSE + Can_Stag) + ACID>1"
   },
   {
+    "name": "Acid_Dive-Queen's_Gardens",
+    "logic": "(Fungus3_39[left1] | Fungus3_39[right1] + Plank-Moss_Prophet?FALSE | Stag-Love_Key?FALSE + Can_Stag) + ACID>1"
+  },
+  {
     "name": "Acid_Dive-Archives",
     "logic": "(Fungus3_archive_02[top1] + Defeated_Uumuu | Stag-Teacher's_Archives?FALSE + Can_Stag) + ACID>1"
+  },
+  {
+    "name": "Water_Dive-King's_Station",
+    "logic": "(Ruins2_06[left1] | Ruins2_06[left2] | Ruins2_06[right1] | Ruins2_06[right2] | Ruins2_06[top1]) + SWIM>1"
+  },
+  {
+    "name": "Water_Dive-Tuk",
+    "logic": "Waterways_01 + SWIM>1"
+  },
+  {
+    "name": "Water_Dive-Waterways_West",
+    "logic": "(Waterways_04b[right1] | Waterways_04b[left1] + (WINGS | ANYCLAW | RIGHTDASH | RIGHTSUPERDASH | ENEMYPOGOS | PRECISEMOVEMENT | SPELLAIRSTALL + $CASTSPELL[1,before:ROOMSOUL]) | Waterways_04b[right2] + (WINGS + (ANYCLAW | ENEMYPOGOS) | (ENEMYPOGOS + DANGEROUSSKIPS))) + SWIM>1"
+  },
+  {
+    "name": "Acid_Dive-Waterways_South",
+    "logic": "(Waterways_06[top1] | Waterways_06[right1]) + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Below_Emilitia",
+    "logic": "Waterways_07 + ACID>1"
+  },
+  {
+    "name": "Acid_Dive-Isma's_Grove",
+    "logic": "(Waterways_13[left1] + (FULLCLAW | ANYCLAW + (WINGS | ENEMYPOGOS) | LEFTCLAW + (RIGHTDASH | RIGHTSUPERDASH) | ENEMYPOGOS + $SHRIEKPOGO[5]) | (Waterways_13[left2] | Stag-Isma's_Grove?FALSE + Can_Stag) + (RIGHTCLAW | WINGS + LEFTCLAW | WINGS + ENEMYPOGOS + DANGEROUSSKIPS + COMPLEXSKIPS + DIFFICULTSKIPS)) + ACID>1"
   }
 ]

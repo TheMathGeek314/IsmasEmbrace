@@ -19,6 +19,7 @@ namespace IsmasEmbrace {
 
         private bool canDiveHere = false;
         private bool isDiving = false;
+        private bool isInteracting = false;
 
         private FieldInfo _inputHandler = typeof(HeroController).GetField("inputHandler", BindingFlags.NonPublic | BindingFlags.Instance);
         private PropertyInfo _fallTimer = typeof(HeroController).GetProperty("fallTimer", BindingFlags.Public | BindingFlags.Instance);
@@ -36,6 +37,7 @@ namespace IsmasEmbrace {
             On.HeroController.CanInspect += OverrideInspect;
             On.HeroController.RegainControl += OverrideRegainControl;
             On.HeroController.TakeDamage += OverrideTakeDamage;
+            
         }
 
         public override void Unload() {
@@ -61,8 +63,10 @@ namespace IsmasEmbrace {
                     GameObject.Instantiate(armour, effects.transform.position + new Vector3(0f, -0.425f, 0), Quaternion.Euler(0, 0, 240), embrace.transform).SetActive(true);
 
                     FsmFloat surface = AddFsmFloat(self, "Surface", 0f);
-                    FsmVector2 swimSpeedVec = AddFsmVector2(self, "Swimmy Vector", Vector2.zero);
+                    //FsmVector2 swimSpeedVec = AddFsmVector2(self, "Swimmy Vector", Vector2.zero);
                     FsmString conditionalSwimEvent = AddFsmString(self, "Conditional Swim Event", "");
+                    FsmFloat swimX = AddFsmFloat(self, "Swimmy X", 0);
+                    FsmFloat swimY = AddFsmFloat(self, "Swimmy Y", 0);
                     FsmState startDiving = self.AddState("Start Diving");
                     FsmState cancelDiving = self.AddState("Cancel Diving");
                     FsmState endDiving = self.AddState("End Diving");
@@ -135,19 +139,22 @@ namespace IsmasEmbrace {
                             float y = 0;
                             float swimSpeedF = self.FsmVariables.GetFsmFloat("Swim Speed").Value;
                             HeroController hero = HeroController.instance;
-                            if(inputHandler.inputActions.up.IsPressed)
-                                y += swimSpeedF;
-                            if(inputHandler.inputActions.down.IsPressed)
-                                y -= swimSpeedF;
-                            if(inputHandler.inputActions.left.IsPressed)
-                                x -= swimSpeedF;
-                            if(inputHandler.inputActions.right.IsPressed)
-                                x += swimSpeedF;
-                            swimSpeedVec.Value = new Vector2(x, y);
-                            if(x > 0.01 && !hero.cState.facingRight)
-                                hero.FaceRight();
-                            if(x < -0.01 && hero.cState.facingRight)
-                                hero.FaceLeft();
+                            if(!isInteracting) {
+                                if(inputHandler.inputActions.up.IsPressed)
+                                    y += swimSpeedF;
+                                if(inputHandler.inputActions.down.IsPressed)
+                                    y -= swimSpeedF;
+                                if(inputHandler.inputActions.left.IsPressed)
+                                    x -= swimSpeedF;
+                                if(inputHandler.inputActions.right.IsPressed)
+                                    x += swimSpeedF;
+                                if(x > 0.01 && !hero.cState.facingRight)
+                                    hero.FaceRight();
+                                if(x < -0.01 && hero.cState.facingRight)
+                                    hero.FaceLeft();
+                            }
+                            swimX.Value = x;
+                            swimY.Value = y;
                             if(hero.transform.position.y > surface.Value + 0.01f) {
                                 Vector3 hp = hero.transform.position;
                                 hero.transform.position = new Vector3(hp.x, surface.Value, hp.z);
@@ -158,7 +165,9 @@ namespace IsmasEmbrace {
                         }),
                         new SetVelocity2d {
                             gameObject = new FsmOwnerDefault { OwnerOption = OwnerDefaultOption.UseOwner },
-                            vector = swimSpeedVec,
+                            vector = Vector2.zero,
+                            x = swimX,
+                            y = swimY,
                             everyFrame = true
                         }
                     ];
@@ -213,14 +222,22 @@ namespace IsmasEmbrace {
                 }
                 catch(InvalidOperationException) { }
             }
+            else if(self.FsmName == "inspect") {
+                self.GetState("Can Inspect?").AddFirstAction(new Lambda(() => isInteracting = isDiving));
+                self.GetState("Check Proximity").AddFirstAction(new Lambda(() => {
+                    if(isInteracting) {
+                        self.SendEvent("FINISHED");
+                    }
+                }));
+            }
         }
 
         internal void PrepareScene(On.GameManager.orig_OnNextLevelReady orig, GameManager self) {
             orig?.Invoke(self);
-            if(Consts.ComplexAcidScenes.TryGetValue(self.sceneName, out string objectName) && hasAcidDive) {
+            if(Consts.ComplexAcidScenes.TryGetValue(self.sceneName, out string[] objectNames) && hasAcidDive) {
                 foreach(GameObject root in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()) {
                     foreach(Transform t in root.GetComponentsInChildren<Transform>(true)) {
-                        if(t.name.StartsWith(objectName)) {
+                        if(objectNames.Any(name => t.name.StartsWith(name))) {
                             t.GetComponent<SpriteRenderer>().enabled = false;
                         }
                     }
@@ -300,6 +317,8 @@ namespace IsmasEmbrace {
         }
 
         private void EarlyPrepareScene(Scene arg0, Scene arg1) {
+            isDiving = false;
+            isInteracting = false;
             if(SwimRoom.ByScene.TryGetValue(arg1.name, out SwimRoom data)) {
                 foreach(ColliderJson box in data.boxes ?? []) {
                     GameObject go = new();
@@ -312,14 +331,15 @@ namespace IsmasEmbrace {
         }
 
         private bool OverrideInspect(On.HeroController.orig_CanInspect orig, HeroController self) {
-            return isDiving || orig(self);
+            return isInteracting || orig(self);
         }
 
         private void OverrideRegainControl(On.HeroController.orig_RegainControl orig, HeroController self) {
-            if(!isDiving)
+            if(!isInteracting)
                 orig(self);
             else {
                 GameManager.instance.StartCoroutine(ResumeSwimming());
+                isInteracting = false;
             }
         }
 
@@ -347,14 +367,14 @@ namespace IsmasEmbrace {
             return fsmFloat;
         }
 
-        private static FsmVector2 AddFsmVector2(PlayMakerFSM fsm, string name, Vector2 value) {
+        /*private static FsmVector2 AddFsmVector2(PlayMakerFSM fsm, string name, Vector2 value) {
             FsmVector2 fsmVector2 = new FsmVector2 { Name = name, Value = value };
             FsmVector2[] array = new FsmVector2[fsm.FsmVariables.Vector2Variables.Length + 1];
             fsm.FsmVariables.Vector2Variables.CopyTo(array, 0);
             array[array.Length - 1] = fsmVector2;
             fsm.FsmVariables.Vector2Variables = array;
             return fsmVector2;
-        }
+        }*/
 
         private static FsmString AddFsmString(PlayMakerFSM fsm, string name, string value) {
             FsmString fsmString = new FsmString { Name = name, Value = value };

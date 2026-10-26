@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using RandomizerCore;
 using RandomizerCore.Json;
 using RandomizerCore.Logic;
@@ -16,11 +17,15 @@ namespace IsmasEmbrace {
             if(!IsmasEmbrace.globalSettings.Enabled)
                 return;
             JsonLogicFormat fmt = new();
-            using Stream s = typeof(LogicAdder).Assembly.GetManifestResourceStream("IsmasEmbrace.Resources.logic.json");
+            Assembly assembly = typeof(LogicAdder).Assembly;
+            using Stream s = assembly.GetManifestResourceStream("IsmasEmbrace.Resources.logic.json");
             lmb.DeserializeFile(LogicFileType.Locations, fmt, s);
 
-            using Stream t = typeof(LogicAdder).Assembly.GetManifestResourceStream("IsmasEmbrace.Resources.macros.json");
+            using Stream t = assembly.GetManifestResourceStream("IsmasEmbrace.Resources.macros.json");
             lmb.DeserializeFile(LogicFileType.Macros, fmt, t);
+
+            using Stream r = assembly.GetManifestResourceStream("IsmasEmbrace.Resources.logicSubstitutions.json");
+            lmb.DeserializeFile(LogicFileType.LogicSubst, fmt, r);
 
             DefineTermsAndItems(lmb, fmt);
         }

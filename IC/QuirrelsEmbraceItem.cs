@@ -8,6 +8,7 @@ namespace IsmasEmbrace {
             name = Consts.WaterItem;
             InteropTag tag = RandoInterop.AddTag(this);
             tag.Properties["PinSprite"] = new EmbraceSprite("Walljump");
+            tag.Properties["PoolGroup"] = "Skills";
             AddTag(new ItemChainTag {
                 predecessor = ItemNames.Swim,
                 successor = null
@@ -27,6 +28,7 @@ namespace IsmasEmbrace {
 
         public override void GiveImmediate(GiveInfo info) {
             AcidDivingModule.instance.hasWaterDive = true;
+            AcidDivingModule.instance.PrepareScene(null, GameManager.instance);
         }
 
         public override bool Redundant() {

@@ -325,6 +325,11 @@
     ]
   },
   {
+    "scene": "Fungus3_03",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
     "scene": "Fungus3_24",
     "type": "Acid",
     "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ],
@@ -388,6 +393,11 @@
     "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)" ]
   },
   {
+    "scene": "Fungus3_39",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)", "water_fog (5)", "water_fog (7)", "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
     "scene": "Fungus3_44",
     "type": "Acid",
     "renderers": [ "water_fog", "water_fog (1)" ]
@@ -395,5 +405,119 @@
   {
     "scene": "Fungus3_archive_02",
     "type": "Acid"
+  },
+  {
+    "scene": "Ruins1_03",
+    "type": "Water",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Ruins1_04",
+    "type": "Water",
+    "renderers": [ "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Ruins1_27",
+    "type": "Water",
+    "renderers": [ "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Ruins2_04",
+    "type": "Water",
+    "renderers": [ "water_fog (1)", "water_fog (2)", "water_fog (3)" ]
+  },
+  {
+    "scene": "Ruins2_06",
+    "type": "Water",
+    "renderers": [ "water_fog (1)", "water_fog (2)" ]
+  },
+  {
+    "scene": "Ruins2_07",
+    "type": "Water",
+    "renderers": [ "water_fog (1)", "water_fog (2)", "water_fog (3)" ],
+    "boxes": [
+      {
+        "X": 108,
+        "Y": -0.4,
+        "SizeX": 36,
+        "SizeY": 1
+      }
+    ]
+  },
+  {
+    "scene": "Waterways_01",
+    "type": "Water",
+    "renderers": [ "water_fog", "water_fog (1)", "waterways_water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "waterways_water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
+    "scene": "Waterways_02",
+    "type": "Water",
+    "renderers": [ "water_fog", "hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
+    "scene": "Waterways_04",
+    "type": "Water",
+    "renderers": [ "water_fog", "hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
+    "scene": "Waterways_04b",
+    "type": "Water",
+    "renderers": [ "water_fog", "water_fog (1)", "waterways_water_components/hot_spring_layers_0032_Color-Balance-1-copy-5", "waterways_water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5" ]
+  },
+  {
+    "scene": "Waterways_06",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)", "water_components/hot_spring_layers_0032_Color-Balance-1-copy-5 (1)", "water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5", "water_components (1)/hot_spring_layers_0032_Color-Balance-1-copy-5 (1)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (1)",
+        "PosY": -7,
+        "MinY": 12.3
+      }
+    ]
+  },
+  {
+    "scene": "Waterways_07",
+    "type": "Acid",
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea",
+        "PosY": -0.7,
+        "MinY": 13.6
+      },
+      {
+        "AreaToClone": "CameraLockArea (3)",
+        "PosY": 0.1,
+        "MinY": 15.6
+      }
+    ],
+    "acidEdits": [
+      {
+        "name": "Acid Control v2/Surface Water Region",
+        "position": 14.82,
+        "size": 6.6
+      }
+    ]
+  },
+  {
+    "scene": "Waterways_13",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (3)", "water_fog (4)" ]
+  },
+  {
+    "scene": "Waterways_14",
+    "type": "Acid",
+    "renderers": [ "water_fog", "water_fog (1)", "water_fog (2)", "water_fog (4)" ],
+    "zones": [
+      {
+        "AreaToClone": "CameraLockArea (5)",
+        "PosX": 144,
+        "PosY": 3.7,
+        "ScaleX": 8,
+        "MinX": 81,
+        "MaxX": 218,
+        "MinY": 19.6
+      }
+    ]
   }
 ]

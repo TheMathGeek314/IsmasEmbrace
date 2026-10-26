@@ -23,10 +23,8 @@ namespace IsmasEmbrace {
     }
 }
 
-// TODO
-//  place locations
-//  define logic
-//  are they always 100% consistently named? Can I disregard object name and only account for possible parentage of dupe named items
 
 // UP NEXT
-//  Fungal is done, resume with Queen's Gardens
+//  Waterways is done, Peak is empty, start with Spirits Glade (shiny under waterfall?)
+//  Consider grove double hwurmp pogo logic >:)
+//  Oh, I forgot to do flukemarm, flukemungas, and junk pit

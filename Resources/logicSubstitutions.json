@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Waterways_07[right1]",
+    "old": "Lever-Dung_Defender",
+    "replacement": "(Lever-Dung_Defender | ACID>1)"
+  }
+]
