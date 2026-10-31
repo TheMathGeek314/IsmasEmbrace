@@ -1,9 +1,21 @@
 [
   {
+    "name": "Void_Dive-Lighthouse",
+    "scene": "Abyss_09",
+    "x": 108.7,
+    "y": 10.5
+  },
+  {
     "name": "Acid_Dive-Crossroads",
     "scene": "Crossroads_35",
     "x": 25,
     "y": 27.5
+  },
+  {
+    "name": "Acid_Dive-Lower_Kingdom's_Edge",
+    "scene": "Deepnest_East_02",
+    "x": 49.2,
+    "y": 11.5
   },
   {
     "name": "Acid_Dive-Enter_Greenpath",
@@ -118,6 +130,36 @@
     "scene": "Fungus3_archive_02",
     "x": 98.1,
     "y": 45.5
+  },
+  {
+    "name": "Water_Dive-Pale_Lurker",
+    "scene": "GG_Lurker",
+    "x": 85.4,
+    "y": 46.5
+  },
+  {
+    "name": "Water_Dive-Pipeway",
+    "scene": "GG_Pipeway",
+    "x": 37.9,
+    "y": 1.5
+  },
+  {
+    "name": "Water_Dive-Junk_Pit",
+    "scene": "GG_Waterways",
+    "x": 137.7,
+    "y": 4.5
+  },
+  {
+    "name": "Water_Dive-Spirits'_Glade",
+    "scene": "RestingGrounds_08",
+    "x": 129.1,
+    "y": 0.6
+  },
+  {
+    "name": "Water_Dive-Fluke_Hermit",
+    "scene": "Room_GG_Shortcut",
+    "x": 14.4,
+    "y": 34.5
   },
   {
     "name": "Water_Dive-King's_Station",

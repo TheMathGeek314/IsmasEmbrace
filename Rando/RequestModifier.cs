@@ -67,10 +67,7 @@ namespace IsmasEmbrace {
                 AbstractItem currentDef = Finder.GetItemInternal(vanilla);
                 Finder.GetItemOverride += args => {
                     if(args.ItemName == vanilla) {
-                        //args.Current = currentDef;
                         args.Current = Finder.GetItemInternal(vanilla);
-                        //args.Current.tags ??= new();
-                        //args.Current.GetOrAddTag<ItemChainTag>().successor = embrace;
                         ItemChainTag ict = new() { predecessor = null, successor = embrace };
                         if(args.Current.tags == null) {
                             args.Current.tags = [ict];

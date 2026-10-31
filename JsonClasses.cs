@@ -25,6 +25,7 @@ namespace IsmasEmbrace {
         public CameraLockJson[] zones;
         public ColliderJson[] boxes;
         public AcidEdit[] acidEdits;
+        public string[] parentObjs;
 
         public void translate() {
             ByScene[scene] = this;

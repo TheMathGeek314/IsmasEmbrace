@@ -22,9 +22,3 @@ namespace IsmasEmbrace {
         }
     }
 }
-
-
-// UP NEXT
-//  Waterways is done, Peak is empty, start with Spirits Glade (shiny under waterfall?)
-//  Consider grove double hwurmp pogo logic >:)
-//  Oh, I forgot to do flukemarm, flukemungas, and junk pit

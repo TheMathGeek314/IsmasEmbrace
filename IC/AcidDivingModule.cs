@@ -63,7 +63,6 @@ namespace IsmasEmbrace {
                     GameObject.Instantiate(armour, effects.transform.position + new Vector3(0f, -0.425f, 0), Quaternion.Euler(0, 0, 240), embrace.transform).SetActive(true);
 
                     FsmFloat surface = AddFsmFloat(self, "Surface", 0f);
-                    //FsmVector2 swimSpeedVec = AddFsmVector2(self, "Swimmy Vector", Vector2.zero);
                     FsmString conditionalSwimEvent = AddFsmString(self, "Conditional Swim Event", "");
                     FsmFloat swimX = AddFsmFloat(self, "Swimmy X", 0);
                     FsmFloat swimY = AddFsmFloat(self, "Swimmy Y", 0);
@@ -97,7 +96,7 @@ namespace IsmasEmbrace {
                                 surface.Value = pos.y;
                                 self.FsmVariables.GetFsmString("Idle Anim").Value = "Surface Idle";
                                 inputHandler ??= _inputHandler.GetValue(HeroController.instance) as InputHandler;
-                                HeroController.instance.transform.position = new Vector3(pos.x, pos.y - 1, pos.z);
+                                HeroController.instance.transform.position = new Vector3(pos.x, pos.y - (GameManager.instance.sceneName.StartsWith("Abyss") ? 0.5f : 1), pos.z);
                                 HeroController.instance.AffectedByGravity(false);
                                 isDiving = true;
                             }
@@ -252,6 +251,13 @@ namespace IsmasEmbrace {
                     canDiveHere = false;
                     return;
                 }
+                bool equippedHeart = PlayerData.instance.GetInt(nameof(PlayerData.royalCharmState)) >= 4 && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_36));
+                bool litLighthouse = GameManager.instance.sceneName == "Abyss_09" && PlayerData.instance.GetBool(nameof(PlayerData.abyssLighthouse));
+                bool validVoidSwim = hasWaterDive && (litLighthouse|| equippedHeart);
+                if(data.type == "Void" && !validVoidSwim) {
+                    canDiveHere = false;
+                    return;
+                }
                 canDiveHere = true;
                 foreach(string r in data.renderers ?? []) {
                     ((GameObject)(r.Contains("/") switch {
@@ -286,9 +292,27 @@ namespace IsmasEmbrace {
                     BoxCollider2D col = box.GetComponent<BoxCollider2D>();
                     col.size = new Vector2(col.size.x, edit.size);
                 }
+                if(data.type == "Void") {
+                    foreach(string parent in data.parentObjs ?? []) {
+                        foreach(Transform child in GameObject.Find(parent).transform) {
+                            if(child.name.Contains("top")) {
+                                Vector3 s = child.localScale;
+                                child.localScale = new Vector3(s.x, 0.05f, s.z);
+                            }
+                            else if(child.name.Contains("black_solid")) {
+                                child.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                            }
+                        }
+                    }
+                }
             }
             else {
                 canDiveHere = false;
+            }
+            if(self.sceneName == "Abyss_09") {
+                BoxCollider2D box = GameObject.Find("Surface Water Region").GetComponent<BoxCollider2D>();
+                box.size = new Vector2(162.5812f, 6f);
+                box.offset = new Vector2(-16.6142f, -2.7963f);
             }
             if(self.sceneName == "Fungus1_03") {
                 GameObject g = GameObject.Find("Surface Water Region");
@@ -313,6 +337,17 @@ namespace IsmasEmbrace {
             }
             if(self.sceneName == "Fungus2_30") {
                 GameObject.Find("Secret Mask").transform.position = new Vector3(69f, 21f, -5.44f);
+            }
+            if(self.sceneName == "GG_Pipeway") {
+                PolygonCollider2D collider = GameObject.Find("Roof Collider (6)").GetComponent<PolygonCollider2D>();
+                Vector2[] points = [.. collider.points];
+                points[3] = new Vector2(6f, -4f);
+                collider.points = points;
+            }
+            if(self.sceneName == "GG_Waterways") {
+                BoxCollider2D box = GameObject.Find("Surface Water Region").GetComponent<BoxCollider2D>();
+                box.size = new Vector2(162.5812f, 4);
+                box.offset = new Vector2(-14.6142f, -1.8f);
             }
         }
 
@@ -366,15 +401,6 @@ namespace IsmasEmbrace {
             fsm.FsmVariables.FloatVariables = array;
             return fsmFloat;
         }
-
-        /*private static FsmVector2 AddFsmVector2(PlayMakerFSM fsm, string name, Vector2 value) {
-            FsmVector2 fsmVector2 = new FsmVector2 { Name = name, Value = value };
-            FsmVector2[] array = new FsmVector2[fsm.FsmVariables.Vector2Variables.Length + 1];
-            fsm.FsmVariables.Vector2Variables.CopyTo(array, 0);
-            array[array.Length - 1] = fsmVector2;
-            fsm.FsmVariables.Vector2Variables = array;
-            return fsmVector2;
-        }*/
 
         private static FsmString AddFsmString(PlayMakerFSM fsm, string name, string value) {
             FsmString fsmString = new FsmString { Name = name, Value = value };
