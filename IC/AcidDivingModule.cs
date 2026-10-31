@@ -96,7 +96,9 @@ namespace IsmasEmbrace {
                                 surface.Value = pos.y;
                                 self.FsmVariables.GetFsmString("Idle Anim").Value = "Surface Idle";
                                 inputHandler ??= _inputHandler.GetValue(HeroController.instance) as InputHandler;
-                                HeroController.instance.transform.position = new Vector3(pos.x, pos.y - (GameManager.instance.sceneName.StartsWith("Abyss") ? 0.5f : 1), pos.z);
+                                float x = GameManager.instance.sceneName == "Fungus2_19" ? Mathf.Min(pos.x, 56.7f) : pos.x;
+                                float y = pos.y - (GameManager.instance.sceneName.StartsWith("Abyss") ? 0.5f : 1);
+                                HeroController.instance.transform.position = new Vector3(x, y, pos.z);
                                 HeroController.instance.AffectedByGravity(false);
                                 isDiving = true;
                             }
