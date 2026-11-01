@@ -3,13 +3,17 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using GlobalEnums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
+using ItemChanger;
 using ItemChanger.Extensions;
 using ItemChanger.FsmStateActions;
+using ItemChanger.Modules;
+using RandomizerCore.Logic;
 
 namespace IsmasEmbrace {
     internal class AcidDivingModule: ItemChanger.Modules.Module {
@@ -38,6 +42,9 @@ namespace IsmasEmbrace {
             On.HeroController.RegainControl += OverrideRegainControl;
             On.HeroController.TakeDamage += OverrideTakeDamage;
             
+            if(ItemChangerMod.Modules?.Get<InventoryTracker>() is InventoryTracker it) {
+                it.OnGenerateFocusDesc += AddInvTracker;
+            }
         }
 
         public override void Unload() {
@@ -47,6 +54,10 @@ namespace IsmasEmbrace {
             On.HeroController.CanInspect -= OverrideInspect;
             On.HeroController.RegainControl -= OverrideRegainControl;
             On.HeroController.TakeDamage -= OverrideTakeDamage;
+
+            if(ItemChangerMod.Modules?.Get<InventoryTracker>() is InventoryTracker it) {
+                it.OnGenerateFocusDesc -= AddInvTracker;
+            }
         }
 
         private void EditKnightSwim(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self) {
@@ -393,6 +404,14 @@ namespace IsmasEmbrace {
             HeroAnimationController animator = hero.GetComponent<HeroAnimationController>();
             animator.StopControl();
             _play.Invoke(animator, ["Surface Swim"]);
+        }
+
+        private void AddInvTracker(StringBuilder sb) {
+            ProgressionManager pm = RandomizerMod.RandomizerMod.RS.TrackerData.pm;
+            bool acid = pm.Get("ACID") > 1;
+            bool water = pm.Get("SWIM") > 1;
+            if(acid || water)
+                sb.AppendLine($"You can swim beneath the surface of {(acid ? "acid" : "water") + (acid && water ? " and water" : "")}.");
         }
 
         private static FsmFloat AddFsmFloat(PlayMakerFSM fsm, string name, float value) {

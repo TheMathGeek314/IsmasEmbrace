@@ -1,4 +1,5 @@
-﻿using ItemChanger;
+﻿using System;
+using ItemChanger;
 using ItemChanger.Tags;
 using RandomizerMod.RandomizerData;
 using RandomizerMod.RC;
@@ -10,6 +11,7 @@ namespace IsmasEmbrace {
             RequestBuilder.OnUpdate.Subscribe(-499, SetupItems);
             RequestBuilder.OnUpdate.Subscribe(0, ProgressifySwims);
             RequestBuilder.OnUpdate.Subscribe(-499.5f, DefinePools);
+            RequestBuilder.OnUpdate.Subscribe(0, VerifySettings);
         }
 
         private static void ApplyEmbraceDefs(RequestBuilder rb) {
@@ -125,5 +127,17 @@ namespace IsmasEmbrace {
                 return false;
             }
         }
+
+        private static void VerifySettings(RequestBuilder rb) {
+            if(!IsmasEmbrace.globalSettings.Enabled)
+                return;
+            if(!rb.gs.PoolSettings.Skills || !rb.gs.NoveltySettings.RandomizeSwim)
+                throw new SwimSettingsError();
+
+        }
+    }
+
+    public class SwimSettingsError: Exception {
+        public override string ToString() => "Isma's Embrace requires both Skills and Swim to be randomized.";
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace IsmasEmbrace {
     public class IsmasEmbrace: Mod, IGlobalSettings<GlobalSettings> {
         new public string GetName() => "Isma's Embrace";
-        public override string GetVersion() => "1.0.0.0";
+        public override string GetVersion() => "1.0.1.0";
 
         public static GlobalSettings globalSettings { get; set; } = new();
         public void OnLoadGlobal(GlobalSettings s) => globalSettings = s;
