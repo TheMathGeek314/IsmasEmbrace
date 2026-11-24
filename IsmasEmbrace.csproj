@@ -83,6 +83,9 @@
     <Reference Include="DebugMod">
       <HintPath>..\_dependencies\DebugMod.dll</HintPath>
     </Reference>
+    <Reference Include="FStats">
+      <HintPath>..\_dependencies\FStats.dll</HintPath>
+    </Reference>
     <Reference Include="GalaxyCSharp">
       <HintPath>$(HollowKnightRefs)/GalaxyCSharp.dll</HintPath>
     </Reference>

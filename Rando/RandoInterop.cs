@@ -26,6 +26,9 @@ namespace IsmasEmbrace {
             if(ModHooks.GetMod("CondensedSpoilerLogger") is Mod)
                 CslInterop.Hook();
 
+            if(ModHooks.GetMod("FStatsMod") is Mod)
+                FsInterop.Hook();
+
             if(ModHooks.GetMod("RandoSettingsManager") is Mod)
                 RsmInterop.Hook();
         }

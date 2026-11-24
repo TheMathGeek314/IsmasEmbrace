@@ -9,6 +9,7 @@ namespace IsmasEmbrace {
             InteropTag tag = RandoInterop.AddTag(this);
             tag.Properties["PinSprite"] = new EmbraceSprite("Walljump");
             tag.Properties["PoolGroup"] = "Skills";
+            tag.Properties["TreasureHuntGroup"] = "Swimming";
             AddTag(new ItemChainTag {
                 predecessor = ItemNames.Ismas_Tear,
                 successor = null
@@ -27,8 +28,10 @@ namespace IsmasEmbrace {
         }
 
         public override void GiveImmediate(GiveInfo info) {
-            AcidDivingModule.instance.hasAcidDive = true;
-            AcidDivingModule.instance.PrepareScene(null, GameManager.instance);
+            AcidDivingModule adm = AcidDivingModule.instance;
+            adm.hasAcidDive = true;
+            adm.PrepareScene(null, GameManager.instance);
+            adm.RecordItem(name);
         }
 
         public override bool Redundant() {

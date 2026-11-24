@@ -28,6 +28,10 @@ namespace IsmasEmbrace {
         private FieldInfo _inputHandler = typeof(HeroController).GetField("inputHandler", BindingFlags.NonPublic | BindingFlags.Instance);
         private PropertyInfo _fallTimer = typeof(HeroController).GetProperty("fallTimer", BindingFlags.Public | BindingFlags.Instance);
         private MethodInfo _play = typeof(HeroAnimationController).GetMethod("Play", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        public delegate void ItemObtained(string item);
+        public static event ItemObtained OnItemObtained;
+        public void RecordItem(string item) => OnItemObtained?.Invoke(item.Replace("_", " "));
         
         public override void Initialize() {
             instance = this;
